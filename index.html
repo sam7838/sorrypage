@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apology Page</title>
+  <style>
+    body {
+      background: linear-gradient(45deg, #ff0066, #ffcc00, #66ff66, #00ccff);
+      background-size: 400% 400%;
+      animation: backgroundAnimation 10s infinite;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: white;
+      text-align: center;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      background-color: #ff0099;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.5s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff66cc;
+    }
+
+    #no-btn {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I am very, very sorry!</h1>
+  <p>Do you accept my apology?</p>
+
+  <div class="buttons">
+    <button id="yes-btn" onclick="goToLovePage()">Yes</button>
+    <button id="no-btn" onmouseover="moveButton()" ontouchstart="moveButton()">No</button>
+  </div>
+
+  <script>
+    // Redirect to love page on 'Yes'
+    function goToLovePage() {
+      window.location.href = "love.html";
+    }
+
+    // Move the 'No' button to a random position
+    function moveButton() {
+      const noButton = document.getElementById('no-btn');
+      const x = Math.random() * (window.innerWidth - noButton.clientWidth);
+      const y = Math.random() * (window.innerHeight - noButton.clientHeight);
+      noButton.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+</body>
+</html>
